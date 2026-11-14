@@ -465,7 +465,6 @@ export class AuthService {
     password: string;
     role?: UserRole;
     phone?: string;
-    website?: string;
     profileImage?: string | null;
     otp?: string;
     otpMethod?: "sms" | "email";
@@ -518,7 +517,6 @@ export class AuthService {
         password_hash,
         role,
         phone: (data.phone ? data.phone.trim() : undefined) as any,
-        website: data.website || undefined,
         profileImage: data.profileImage || undefined,
         status: UserStatus.PENDING,
         is_active: false,

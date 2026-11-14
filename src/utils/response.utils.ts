@@ -17,10 +17,6 @@ export interface SafeUserOutput {
   phoneVerifiedAt?: Date | null;
   emailVerifiedAt?: Date | null;
   hasPassword?: boolean;
-  website: string | null;
-  education: string | null;
-  achievement: string | null;
-  professional_experience: string | null;
   created_at?: Date | null;
   createdAt?: Date | null;
   registeredAt?: string | null;
@@ -39,10 +35,6 @@ export interface AdminUserOutput {
   phoneVerifiedAt?: Date | null;
   emailVerifiedAt?: Date | null;
   hasPassword?: boolean;
-  website: string | null;
-  education: string | null;
-  achievement: string | null;
-  professional_experience: string | null;
   last_login_at: Date | null;
   status: UserStatus;
   is_active: boolean;
@@ -75,10 +67,6 @@ export function pickSafeUserFields(user: User | null | undefined): SafeUserOutpu
     phoneVerifiedAt: user.phoneVerifiedAt ?? null,
     emailVerifiedAt: user.emailVerifiedAt ?? null,
     hasPassword: Boolean(user.localCredential?.passwordHash || user.password_hash),
-    website: user.website ?? null,
-    education: user.education ?? null,
-    achievement: user.achievement ?? null,
-    professional_experience: user.professional_experience ?? null,
     created_at: user.created_at ?? null,
     createdAt: user.created_at ?? null,
     registeredAt: user.created_at ? user.created_at.toISOString() : null,
@@ -101,10 +89,6 @@ export function pickAdminUserFields(user: User | null | undefined): AdminUserOut
     phoneVerifiedAt: user.phoneVerifiedAt ?? null,
     emailVerifiedAt: user.emailVerifiedAt ?? null,
     hasPassword: Boolean(user.localCredential?.passwordHash || user.password_hash),
-    website: user.website ?? null,
-    education: user.education ?? null,
-    achievement: user.achievement ?? null,
-    professional_experience: user.professional_experience ?? null,
     last_login_at: user.last_login_at ?? null,
     status: user.status,
     is_active: user.is_active,

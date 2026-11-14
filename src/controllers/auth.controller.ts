@@ -111,7 +111,6 @@ export class AuthController {
         password: dto.password,
         role: dto.role,
         phone: dto.phone,
-        website: dto.website,
         profileImage: dto.profileImage,
         otp: dto.otp,
         otpMethod,

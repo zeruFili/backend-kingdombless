@@ -17,10 +17,6 @@ export interface UserDetails {
   profile_image?: string | null;
   avatar?: string | null;
   phone: string | null;
-  website: string | null;
-  education: string | null;
-  achievement: string | null;
-  professional_experience: string | null;
   last_login_at?: Date | null;
   created_at?: Date | null;
   createdAt?: Date | null;
@@ -59,10 +55,6 @@ export async function getUserDetails(userId: string): Promise<UserDetails | null
     profile_image: image,
     avatar: image,
     phone: user.phone ?? null,
-    website: user.website ?? null,
-    education: user.education ?? null,
-    achievement: user.achievement ?? null,
-    professional_experience: user.professional_experience ?? null,
     last_login_at: user.last_login_at ?? null,
     created_at: user.created_at ?? null,
     createdAt: user.created_at ?? null,

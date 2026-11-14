@@ -40,11 +40,6 @@ interface UpdateUserInput {
   full_name?: string;
   email?: string;
   phone?: string;
-  website?: string;
-  education?: string;
-  achievement?: string;
-  professional_experience?: string;
-  professionalExperience?: string;
   password?: string;
   status?: UserStatus;
   role?: UserRole;
@@ -74,10 +69,6 @@ function sanitizeUser(user: User): UserDetails {
     profile_image: image,
     avatar: image,
     phone: user.phone ?? null,
-    website: user.website ?? null,
-    education: user.education ?? null,
-    achievement: user.achievement ?? null,
-    professional_experience: user.professional_experience ?? null,
     last_login_at: user.last_login_at ?? null,
     created_at: user.created_at ?? null,
     createdAt: user.created_at ?? null,
@@ -258,12 +249,6 @@ export class UserService {
 
     if (data.full_name !== undefined) user.full_name = data.full_name;
     if (data.phone !== undefined) user.phone = data.phone;
-    if (data.website !== undefined) user.website = data.website;
-    if (data.education !== undefined) user.education = data.education;
-    if (data.achievement !== undefined) user.achievement = data.achievement;
-
-    const profExp = data.professional_experience ?? data.professionalExperience;
-    if (profExp !== undefined) user.professional_experience = profExp;
 
     if (data.profileImage !== undefined) {
       if (user.profileImage && user.profileImage !== data.profileImage) {

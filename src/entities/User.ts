@@ -47,18 +47,6 @@ export class User {
   @Column({ name: "profile_image", type: "varchar", length: 255, nullable: true })
   profileImage?: string | null;
 
-  @Column({ type: "varchar", length: 255, nullable: true })
-  website?: string;
-
-  @Column({ type: "text", nullable: true })
-  education?: string;
-
-  @Column({ type: "text", nullable: true })
-  achievement?: string;
-
-  @Column({ type: "text", nullable: true })
-  professional_experience?: string;
-
   @Index("IDX_user_status")
   @Column({
     type: "enum",
@@ -69,9 +57,6 @@ export class User {
 
   @Column({ type: "boolean", default: true })
   is_active: boolean;
-
-  @Column({ type: "smallint", default: 1 })
-  rank: number; // 1 - 10
 
   @Index("IDX_user_role")
   @Column({ type: "enum", enum: UserRole })

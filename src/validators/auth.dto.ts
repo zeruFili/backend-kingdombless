@@ -62,11 +62,6 @@ export class RegisterDto {
   business?: string;
 
   @IsOptional()
-  @IsString()
-  @Length(1, 255)
-  website?: string;
-
-  @IsOptional()
   @ValidateIf((_obj, value) => value !== null)
   @IsString()
   @Length(1, 255)

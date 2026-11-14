@@ -8,7 +8,6 @@ import {
   Length,
   MinLength,
   Matches,
-  IsUrl,
   ValidateIf,
 } from "class-validator";
 import { Transform } from "class-transformer";
@@ -71,23 +70,6 @@ export class CreateUserDto {
   otpMethod?: "sms" | "email";
 
   @IsOptional()
-  @IsUrl()
-  @Length(1, 255)
-  website?: string;
-
-  @IsOptional()
-  @IsString()
-  education?: string;
-
-  @IsOptional()
-  @IsString()
-  achievement?: string;
-
-  @IsOptional()
-  @IsString()
-  professional_experience?: string;
-
-  @IsOptional()
   @ValidateIf((_obj, value) => value !== null)
   @IsString()
   @Length(1, 255)
@@ -121,24 +103,6 @@ export class UpdateUserDto {
     message: "Invalid phone number format",
   })
   phone?: string;
-
-  @IsOptional()
-  @IsUrl()
-  @Length(1, 255)
-  website?: string;
-
-  @IsOptional()
-  @IsString()
-  education?: string;
-
-  @IsOptional()
-  @IsString()
-  achievement?: string;
-
-  @IsOptional()
-  @Transform(({ value, obj }) => value ?? obj?.professionalExperience)
-  @IsString()
-  professional_experience?: string;
 
   @IsOptional()
   @IsString()
